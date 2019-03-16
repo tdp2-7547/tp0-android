@@ -1,19 +1,29 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Busqueda
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-item>
+<ion-content padding scroll="false" color="light" text-center class="vertical-align-content">
+  
+  <ion-grid style="height: 100%">
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-searchbar showCancelButton cancelButtonText="Custom Cancel"></ion-searchbar>
+        <ion-button>Go</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--<ion-item>
     <ion-label color="secondary">
       Search...
       <ion-icon name="search" item-left></ion-icon>
     </ion-label>
     <ion-input></ion-input>
-  </ion-item>
+  </ion-item>-->
 </ion-content>
 
 

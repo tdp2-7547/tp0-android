@@ -1,5 +1,7 @@
 {
   "name": "bookSearch",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
