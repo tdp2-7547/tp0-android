@@ -34,7 +34,6 @@ export class SearchListPage implements OnInit {
     });
   }
 
-
   loadData(event){
     setTimeout(() => {
       this.pageNumber++;
@@ -43,9 +42,13 @@ export class SearchListPage implements OnInit {
       // App logic to determine if all data is loaded
       // and disable the infinite scroll
       if (this.pageNumber > 30) {
-        event.target.disabled = true;
+        //event.target.disabled = true;
       }
     }, 1000);
+  }
+
+  goUp(){
+    //hacer algo para que suba
   }
 
   downloadFile(url){
