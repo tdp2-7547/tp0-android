@@ -26,7 +26,7 @@ export class HomePage {
 
   getItems(){
     this.getBooks();
-    this.router.navigate(['/search-list']);
+    this.router.navigate(['/search-list', this.searchText]);
   }
 
   getBooks(){
