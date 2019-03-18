@@ -8,23 +8,25 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngFor="let book of books">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="4">
-            <ion-card>
-                <ion-img [src]="book.linkImage"></ion-img>
-            </ion-card>  
-        </ion-col>
-        <ion-col size="8">
-            <p ><B>{{book.title}}</B></p>
-            <p *ngFor="let author of book.authores" >{{author}}</p>
-            <p *ngFor="let category of book.categories" >{{category}}</p>
-            <p>etiqueta : {{book.etiqueta}}</p>
-            <ion-button *ngIf="book.isAvailableFreePDF" color="danger" size="default" (click)="downloadFile(book.linkDownloadPDF)"><ion-icon name="archive"></ion-icon>pdf</ion-button>
-            <ion-button *ngIf="book.isAvailableFreeEpub" color="danger" size="default" (click)="downloadFile(book.linkDownloadEpub)"><ion-icon name="archive"></ion-icon>epub</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-list>
+  <ion-infinite-scroll *ngFor="let book of books" (ionInfinite)="loadData($event)" >
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+              <ion-card>
+                  <ion-img [src]="book.linkImage"></ion-img>
+              </ion-card>  
+          </ion-col>
+          <ion-col size="8">
+              <p ><B>title: {{book.title}}</B></p>
+              <p *ngFor="let author of book.authores" >author: {{author}}</p>
+              <p *ngFor="let category of book.categories" >category: {{category}}</p>
+              <p>etiqueta : {{book.etiqueta}}</p>
+              <ion-button *ngIf="book.isAvailableFreePDF" color="danger" size="default" (click)="downloadFile(book.linkDownloadPDF)"><ion-icon name="archive"></ion-icon>pdf</ion-button>
+              <ion-button *ngIf="book.isAvailableFreeEpub" color="danger" size="default" (click)="downloadFile(book.linkDownloadEpub)"><ion-icon name="archive"></ion-icon>epub</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

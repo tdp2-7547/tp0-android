@@ -15,7 +15,7 @@ export class SearchListPage implements OnInit {
   HTTPREQUEST: string ="http://localhost:3000/books/";
   searchText: string = "java";
   pageNumber: number = 0;
-  books: any;
+  books=[];
 
   ngOnInit() {
     this.searchText = this.activatedRoute.snapshot.paramMap.get('id');
@@ -29,8 +29,23 @@ export class SearchListPage implements OnInit {
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     this.http.get(this.HTTPREQUEST+this.searchText+"/"+this.pageNumber, {headers: headers})
     .subscribe( data =>{
-      this.books = data;
-    })
+      console.log(this.books.length);
+      this.books = this.books.concat(data);
+    });
+  }
+
+
+  loadData(event){
+    setTimeout(() => {
+      this.pageNumber++;
+      this.getBooks();
+      event.target.complete();
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      if (this.pageNumber > 30) {
+        event.target.disabled = true;
+      }
+    }, 1000);
   }
 
   downloadFile(url){
