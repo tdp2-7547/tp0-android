@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-search-list',
@@ -10,10 +10,11 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class SearchListPage implements OnInit {
 
-  constructor( private activatedRoute : ActivatedRoute, private http: HttpClient) { }
+  constructor( private activatedRoute : ActivatedRoute, private http: HttpClient,
+    private router: Router) { }
 
   HTTPREQUEST: string ="http://localhost:3000/books/";
-  searchText: string = "java";
+  searchText: string = "";
   pageNumber: number = 0;
   books=[];
 
@@ -49,6 +50,10 @@ export class SearchListPage implements OnInit {
 
   goUp(){
     //hacer algo para que suba
+  }
+
+  showBookDetails(idBook){
+    this.router.navigate(['/book-detail', idBook]);    
   }
 
   downloadFile(url){

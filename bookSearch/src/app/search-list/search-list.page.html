@@ -24,10 +24,14 @@
                 </ion-card>  
             </ion-col>
             <ion-col size="8">
-                <p ><B>title: {{book.title}}</B></p>
-                <p *ngFor="let author of book.authores" >author: {{author}}</p>
-                <p *ngFor="let category of book.categories" >category: {{category}}</p>
+                <p ><B>{{book.title}}</B></p>
+                <p>authores:</p>
+                <div *ngFor="let author of book.authores" >{{author}}</div>
+                <p>categories:</p>
+                <div *ngFor="let category of book.categories" >{{category}}</div>
                 <p>etiqueta : {{book.etiqueta}}</p>
+                <p>description : {{book.description}}</p>
+                <ion-button color="light" (click)="showBookDetails(book.idBook)"><ion-icon name="open"></ion-icon></ion-button>
                 <ion-button *ngIf="book.isAvailableFreePDF" color="danger" size="default" (click)="downloadFile(book.linkDownloadPDF)"><ion-icon name="archive"></ion-icon>pdf</ion-button>
                 <ion-button *ngIf="book.isAvailableFreeEpub" color="danger" size="default" (click)="downloadFile(book.linkDownloadEpub)"><ion-icon name="archive"></ion-icon>epub</ion-button>
             </ion-col>
