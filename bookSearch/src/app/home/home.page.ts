@@ -25,18 +25,7 @@ export class HomePage {
   }
 
   getItems(){
-    this.getBooks();
     this.router.navigate(['/search-list', this.searchText]);
-  }
-
-  getBooks(){
-    //hard
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    this.http.get(this.HTTPREQUEST+this.searchText+"/"+this.pageNumber, {headers: headers})
-    .subscribe( data =>{
-      console.log(data)
-    })
   }
 
   nextPage(){

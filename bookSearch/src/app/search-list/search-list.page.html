@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-buttons slot='start'>
       <ion-back-button defaultHref='/'></ion-back-button>
     </ion-buttons>
@@ -19,6 +19,10 @@
             <p *ngFor="let author of book.authores" > author: {{author}}</p>
             <p *ngFor="let category of book.categories" > categories: {{category}}</p>
             <p>etiqueta : {{book.etiqueta}}</p>
+            <p *ngFor="let category of book.categories" > categories: {{category}}</p>
+            <p>etiqueta : {{book.etiqueta}}</p>
+            <ion-button color="danger" size="default" (click)="downloadPDF(book.linkDownloadPDF)"><ion-icon name="archive"></ion-icon>pdf</ion-button>
+            <ion-button color="danger" size="default" (click)="downloadPDF(book.linkDownloadEpub)"><ion-icon name="archive"></ion-icon>epub</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
