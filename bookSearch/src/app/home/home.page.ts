@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class HomePage {
 
-  constructor(private http: HttpClient){}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    ){}
   
   HTTPREQUEST: string ="http://localhost:3000/books/";
   searchText: string = "";
@@ -22,6 +26,7 @@ export class HomePage {
 
   getItems(){
     this.getBooks();
+    this.router.navigate(['/search-list', this.searchText]);
   }
 
   getBooks(){

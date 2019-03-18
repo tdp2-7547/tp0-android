@@ -1,17 +1,20 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot='start'>
+      <ion-back-button defaultHref='/'></ion-back-button>
+    </ion-buttons>
     <ion-title>Results</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<ion-list *ngFor="let book of books">
-  <ion-grid>
-      <ion-img [src]="book.linkImage"></ion-img>
-      <ion-title>title: {{book.title}}</ion-title>
-      <ion-label *ngFor="let author of book.authores" > author: {{author}}</ion-label>
-      <ion-label *ngFor="let category of book.categories" > categories: {{category}}</ion-label>
-      <ion-label>etiqueta : {{book.etiqueta}}</ion-label>
-  </ion-grid>
-</ion-list>
+  <ion-list *ngFor="let book of books">
+    <ion-grid>
+        <ion-img [src]="book.linkImage"></ion-img>
+        <ion-title>title: {{book.title}}</ion-title>
+        <ion-label *ngFor="let author of book.authores" > author: {{author}}</ion-label>
+        <ion-label *ngFor="let category of book.categories" > categories: {{category}}</ion-label>
+        <ion-label>etiqueta : {{book.etiqueta}}</ion-label>
+    </ion-grid>
+  </ion-list>
 </ion-content>

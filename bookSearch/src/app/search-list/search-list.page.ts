@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-search-list',
@@ -9,15 +10,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SearchListPage implements OnInit {
 
+  constructor( private activatedRoute : ActivatedRoute, private http: HttpClient) { }
 
   HTTPREQUEST: string ="http://localhost:3000/books/";
   searchText: string = "java";
   pageNumber: number = 0;
   books: any;
-  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    alert("inicia");
+    this.searchText = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log('llego parametro: ' + this.searchText);
     this.getBooks();
   }
 
