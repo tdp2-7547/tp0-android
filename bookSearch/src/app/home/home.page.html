@@ -11,8 +11,8 @@
   <ion-grid style="height: 100%">
     <ion-row>
       <ion-col align-self-center>
-        <ion-searchbar showCancelButton cancelButtonText="Custom Cancel"></ion-searchbar>
-        <ion-button>Go</ion-button>
+        <ion-searchbar showCancelButton cancelButtonText="Custom Cancel" (ionInput)="updateText($event)"></ion-searchbar>
+        <ion-button (click)="getItems($event)">Go</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
