@@ -21,8 +21,8 @@
             <p *ngFor="let author of book.authores" >{{author}}</p>
             <p *ngFor="let category of book.categories" >{{category}}</p>
             <p>etiqueta : {{book.etiqueta}}</p>
-            <ion-button color="danger" size="default" (click)="downloadPDF(book.linkDownloadPDF)"><ion-icon name="archive"></ion-icon>pdf</ion-button>
-            <ion-button color="danger" size="default" (click)="downloadPDF(book.linkDownloadEpub)"><ion-icon name="archive"></ion-icon>epub</ion-button>
+            <ion-button *ngIf="book.isAvailableFreePDF" color="danger" size="default" (click)="downloadFile(book.linkDownloadPDF)"><ion-icon name="archive"></ion-icon>pdf</ion-button>
+            <ion-button *ngIf="book.isAvailableFreeEpub" color="danger" size="default" (click)="downloadFile(book.linkDownloadEpub)"><ion-icon name="archive"></ion-icon>epub</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

@@ -33,12 +33,8 @@ export class SearchListPage implements OnInit {
     })
   }
 
-  downloadPDF(url){
-    alert(url);
-  }
-
-  downloadEpub(url){
-    alert(url);
+  downloadFile(url){
+    window.open(url);
   }
 
 }
