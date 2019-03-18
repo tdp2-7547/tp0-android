@@ -10,11 +10,17 @@
 <ion-content padding>
   <ion-list *ngFor="let book of books">
     <ion-grid>
-        <ion-img [src]="book.linkImage"></ion-img>
-        <ion-title>title: {{book.title}}</ion-title>
-        <ion-label *ngFor="let author of book.authores" > author: {{author}}</ion-label>
-        <ion-label *ngFor="let category of book.categories" > categories: {{category}}</ion-label>
-        <ion-label>etiqueta : {{book.etiqueta}}</ion-label>
+      <ion-row>
+        <ion-col size="4">
+            <ion-img [src]="book.linkImage"></ion-img>
+        </ion-col>
+        <ion-col size="8">
+            <p>title: {{book.title}}</p>
+            <p *ngFor="let author of book.authores" > author: {{author}}</p>
+            <p *ngFor="let category of book.categories" > categories: {{category}}</p>
+            <p>etiqueta : {{book.etiqueta}}</p>
+        </ion-col>
+      </ion-row>
     </ion-grid>
   </ion-list>
 </ion-content>
