@@ -12,13 +12,14 @@
     <ion-grid>
       <ion-row>
         <ion-col size="4">
-            <ion-img [src]="book.linkImage"></ion-img>
+            <ion-card>
+                <ion-img [src]="book.linkImage"></ion-img>
+            </ion-card>  
         </ion-col>
-        <ion-col size="8">
-            <p>title: {{book.title}}</p>
-            <p *ngFor="let author of book.authores" > author: {{author}}</p>
-            <p *ngFor="let category of book.categories" > categories: {{category}}</p>
-            <p>etiqueta : {{book.etiqueta}}</p>
+        <ion-col size="8"> 
+            <p ><B>{{book.title}}</B></p>
+            <p *ngFor="let author of book.authores">{{author}}</p>
+            <div *ngFor="let category of book.categories" >{{category}}</div>
         </ion-col>
       </ion-row>
     </ion-grid>
