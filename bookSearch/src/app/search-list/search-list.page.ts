@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-search-list',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchListPage implements OnInit {
 
-  constructor() { }
+
+  HTTPREQUEST: string ="http://localhost:3000/books/";
+  searchText: string = "java";
+  pageNumber: number = 0;
+  books: any;
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    alert("inicia");
+    this.getBooks();
+  }
+
+  getBooks(){
+    //hard
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    this.http.get(this.HTTPREQUEST+this.searchText+"/"+this.pageNumber, {headers: headers})
+    .subscribe( data =>{
+      this.books = data;
+    })
   }
 
 }
